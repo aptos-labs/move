@@ -1,4 +1,4 @@
-FROM debian:buster-20211011@sha256:f9182ead292f45165f4a851e5ff98ea0800e172ccedce7d17764ffaae5ed4d6e AS setup_ci
+FROM debian:buster-20220418@sha256:ebe4b9831fb22dfa778de4ffcb8ea0ad69b5d782d4e86cab14cc1fded5d8e761 AS setup_ci
 
 RUN mkdir /move
 COPY rust-toolchain /move/rust-toolchain
