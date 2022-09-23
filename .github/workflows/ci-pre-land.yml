@@ -219,7 +219,7 @@ jobs:
       - name: install rust toolchain
         uses: actions-rs/toolchain@v1
       - name: Use Node.js 14
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v3.4.1
         with:
           node-version: "14"
       - name: Install NPM dependencies
@@ -249,7 +249,7 @@ jobs:
       - name: install rust toolchain
         uses: actions-rs/toolchain@v1
       - name: Use Node.js 14
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v3.4.1
         with:
           node-version: "14"
       - name: Install NPM dependencies
