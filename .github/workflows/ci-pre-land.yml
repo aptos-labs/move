@@ -14,7 +14,7 @@ jobs:
       any-changes-founds: ${{ steps.any-changes-found.outputs.changes-found }}
       test-rust: ${{ steps.rust-changes.outputs.changes-found }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: Git Hooks and Checks
         run: ./scripts/git-checks.sh
       - id: changes
@@ -44,7 +44,7 @@ jobs:
     needs: prepare
     # if: ${{ needs.prepare.outputs.any-changes-founds == 'true' }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: cargo lint
@@ -61,7 +61,7 @@ jobs:
     needs: prepare
     # if: ${{ needs.prepare.outputs.test-rust == 'true' }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: Set Swap Space
@@ -78,7 +78,7 @@ jobs:
     needs: prepare
     # if: ${{ needs.prepare.outputs.test-rust == 'true' }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: compile and install move-cli
@@ -103,7 +103,7 @@ jobs:
     timeout-minutes: 30
     needs: prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: run EVM-based move cli tests
@@ -114,7 +114,7 @@ jobs:
     timeout-minutes: 30
     needs: prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: run EVM-based move unit test framework tests
@@ -125,7 +125,7 @@ jobs:
     timeout-minutes: 30
     needs: prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: build Diem Framework Packages
@@ -136,7 +136,7 @@ jobs:
     timeout-minutes: 30
     needs: prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: test Diem Framework Packages
@@ -147,7 +147,7 @@ jobs:
     timeout-minutes: 30
     needs: prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/build-setup
       - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
       - name: prove Diem Framework Packages
@@ -161,7 +161,7 @@ jobs:
   #   needs: prepare
   #   if: ${{ needs.prepare.outputs.test-rust == 'true' }}
   #   steps:
-  #     - uses: actions/checkout@v2.4.0
+  #     - uses: actions/checkout@v3
   #     - uses: ./.github/actions/build-setup
   #     - uses: actions/cache@v2.1.6
   #       with:
@@ -182,7 +182,7 @@ jobs:
   #   env:
   #     CRITERION_HOME: /tmp/benches
   #   steps:
-  #     - uses: actions/checkout@v2.4.0
+  #     - uses: actions/checkout@v3
   #     - uses: actions/cache@v2.1.6
   #       with:
   #         path: "/opt/cargo/git\n/opt/cargo/registry\n/opt/cargo/.package-cache"
@@ -215,7 +215,7 @@ jobs:
     needs:
       - prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: install rust toolchain
         uses: actions-rs/toolchain@v1
       - name: Use Node.js 14
@@ -245,7 +245,7 @@ jobs:
     needs:
       - prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: install rust toolchain
         uses: actions-rs/toolchain@v1
       - name: Use Node.js 14
@@ -273,7 +273,7 @@ jobs:
     needs:
       - prepare
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby 2.6
         uses: actions/setup-ruby@v1
         with:
@@ -291,7 +291,7 @@ jobs:
     needs:
       - prepare
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: Build Dockerfile
         run: "docker build -t move/cli -f docker/move-cli/Dockerfile ."
       - name: Build BasicCoin Move module
