@@ -198,7 +198,7 @@ jobs:
   #         # Replace this with a cargo x bench
   #         cargo bench --package language-benchmarks
   #     - name: Archive criterion results
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: bench-baseline
   #         retention-days: 5
@@ -262,7 +262,7 @@ jobs:
         working-directory: language/move-analyzer/editors/code
         run: npm run package
       - name: Upload VS Code extension
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: move-analyzer-vscode-extension
           path: language/move-analyzer/editors/code/move-analyzer.vsix
