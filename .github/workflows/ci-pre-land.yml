@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: cargo lint
         run: cargo x lint
       - name: cargo clippy
@@ -63,7 +63,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: Set Swap Space
         uses: pierotofy/set-swap-space@master
         with:
@@ -80,7 +80,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: compile and install move-cli
         run: "cargo install --features evm-backend --path language/tools/move-cli"
       - name: set up hardhat-move
@@ -105,7 +105,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: run EVM-based move cli tests
         run: "cargo test --features evm-backend -p move-cli --test build_testsuite_evm --test move_unit_tests_evm"
 
@@ -116,7 +116,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: run EVM-based move unit test framework tests
         run: "cargo test --features evm-backend -p move-unit-test --test move_unit_test_testsuite"
 
@@ -127,7 +127,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: build Diem Framework Packages
         run: "language/documentation/examples/diem-framework/build_all.sh"
 
@@ -138,7 +138,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: test Diem Framework Packages
         run: "language/documentation/examples/diem-framework/test_all.sh"
 
@@ -149,7 +149,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: ./.github/actions/build-setup
-      - uses: Swatinem/rust-cache@c5ed9ba6b7e1bb8aff90d43acd2f0af4990fa57c
+      - uses: Swatinem/rust-cache@6fd3edff6979b79f87531400ad694fb7f2c84b1f
       - name: prove Diem Framework Packages
         run: "language/documentation/examples/diem-framework/prove_all.sh"
 
